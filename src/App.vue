@@ -2,10 +2,14 @@
 import { onErrorCaptured } from 'vue'
 import { RouterLink, RouterView } from 'vue-router/auto'
 
+import { ref } from 'vue'
+const menuIsOpen = ref(false)
+
 onErrorCaptured((err, instance, info) => {
   console.error('erreur : ', err, '\ninfo : ', info, '\ncomposant : ', instance)
   return true
 })
+
 </script>
 
 <template>
@@ -17,7 +21,18 @@ onErrorCaptured((err, instance, info) => {
         </li>
       </ul>
     </nav>
-    <button
+    
+  </header>
+  <main>
+    
+  </main>
+  <RouterView v-slot="{ Component }">
+    <Suspense>
+      <component :is="Component" />
+    </Suspense>
+  </RouterView>
+
+  <button
   aria-controls="mainNav"
   aria-expanded="true"
   class="rounded-full border-2 border-red-600 bg-red-300 px-2"
@@ -32,13 +47,5 @@ onErrorCaptured((err, instance, info) => {
     <li><a href="#">item 3</a></li>
   </ul>
 </nav>
-  </header>
-  <main>
-    
-  </main>
-  <RouterView v-slot="{ Component }">
-    <Suspense>
-      <component :is="Component" />
-    </Suspense>
-  </RouterView>
+
 </template>
