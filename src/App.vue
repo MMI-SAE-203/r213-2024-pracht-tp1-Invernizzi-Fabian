@@ -33,6 +33,7 @@ onErrorCaptured((err, instance, info) => {
   </RouterView>
 
   <button
+  @pointerdown="menuIsOpen = !menuIsOpen"
   aria-controls="mainNav"
   aria-expanded="true"
   class="rounded-full border-2 border-red-600 bg-red-300 px-2"
@@ -42,9 +43,9 @@ onErrorCaptured((err, instance, info) => {
 <!-- nav#mainNav>ul>li*3>a[href="#"]{item $} -->
 <nav id="mainNav">
   <ul>
-    <li v-show="menuIsOpen === 1"><a href="#">item 1</a></li>
-    <li v-show="menuIsOpen === 1"><a href="#">item 2</a></li>
-    <li v-show="menuIsOpen === 1"><a href="#">item 3</a></li>
+    <li v-show="menuIsOpen === true"><a href="#">item 1</a></li>
+    <li v-show="menuIsOpen === true"><a href="#">item 2</a></li>
+    <li v-show="menuIsOpen === true"><a href="#">item 3</a></li>
   </ul>
 </nav>
 
