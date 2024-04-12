@@ -13,26 +13,8 @@ onErrorCaptured((err, instance, info) => {
 </script>
 
 <template>
-  <header>
-    <nav>
-      <ul>
-        <li>
-          <RouterLink to="/" class="text-red-500 underline"> Accueil </RouterLink>
-        </li>
-      </ul>
-    </nav>
-    
-  </header>
-  <main>
-    
-  </main>
-  <RouterView v-slot="{ Component }">
-    <Suspense>
-      <component :is="Component" />
-    </Suspense>
-  </RouterView>
 
-  <button
+<button
   @pointerdown="menuIsOpen = !menuIsOpen"
   aria-controls="mainNav"
   aria-expanded="true"
@@ -50,10 +32,25 @@ onErrorCaptured((err, instance, info) => {
 <nav id="mainNav"  v-show="menuIsOpen === true">
   
   <ul>
-    <li><a href="#">item 1</a></li>
-    <li><a href="#">item 2</a></li>
+    <li><a href="#"><RouterLink to="/" class="text-red-500 underline"> Accueil </RouterLink></a></li>
+    <li><a href="#"><router-link to="/accordeon" class="text-red-500 underline"> Accordeon </router-link></a></li>
     <li><a href="#">item 3</a></li>
   </ul>
 </nav>
 </Transition>
+
+  <header>
+    
+    
+  </header>
+  <main>
+    
+  </main>
+  <RouterView v-slot="{ Component }">
+    <Suspense>
+      <component :is="Component" />
+    </Suspense>
+  </RouterView>
+
+  
 </template>

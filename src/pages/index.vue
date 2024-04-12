@@ -1,22 +1,47 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-const sectionOpen = ref(0)
+const numero = ref(0)
+const sectionsData = [
+  {
+    label: 'bouton 1',
+    texte: `texte panneau 1 Lorem ipsum dolor sit ame
+    consectetur adipisicing elit. Inventore animi dolore,
+    rerum magni laudantium quod excepturi laboriosam, 
+    ex modi debitis harum reprehenderit eaque quam ut
+    ea molestiae. Id, cum dolor!`
+  },
+  {
+    label: 'bouton 2',
+    texte: `texte panneau 2 Amet alias provident quos quis, 
+    Officia ut ab dolores quos dolorem accusamus ad,
+    consectetur unde minima, ipsum eligendi inventore id
+    labore, laborum rerum laboriosam corrupti iste.
+    Distinctio, perspiciatis!`
+  },
+  {
+    label: 'bouton 3',
+    texte: `texte panneau 3 Repudiandae corporis voluptates, 
+    odit reprehenderit sint pariatur at voluptatum, cumque
+    quia sit eligendi ex culpa eos, alias magnam molestiae
+    id modi accusantium ipsa eveniet accusamus. Tempora 
+    quis corporis et nam.`
+  }
+]
 </script>
 
 <template>
-<h1>Bonjour monde !</h1>
+<h1>Bonjour monde !</h1>    
 
-<section>
-    <button class="text-xl" @pointerdown="sectionOpen = 1">bouton 1</button>
-    <p v-show="sectionOpen === 1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto reiciendis necessitatibus, quas culpa aut qui officia cum aspernatur? Nostrum fugit facilis atque sunt provident consequatur omnis at minima vero nemo?</p>
-</section>
-<section>
-    <button class="text-xl" @pointerdown="sectionOpen = 2">bouton 2</button>
-    <p v-show="sectionOpen === 2">Maxime ullam commodi velit perferendis incidunt sapiente laudantium voluptates aperiam ad mollitia quo porro distinctio repudiandae soluta autem voluptas quod, possimus necessitatibus fugit quos. Soluta porro dicta voluptatibus eaque quod.</p>
-</section>
-<section>
-    <button class="text-xl" @pointerdown="sectionOpen = 3">bouton 3</button>
-    <p v-show="sectionOpen === 3">Cumque aspernatur repellat ea fugiat earum, dolorem iusto distinctio cupiditate quasi enim dolorum modi sunt assumenda quis, necessitatibus nulla obcaecati tempore est quo. Debitis recusandae dignissimos aliquam doloremque id aperiam.</p>
+
+<section v-for="({ label, texte }, key) of sectionsData" :key="key">
+  
+  <pre class="font-mono">key : {{ key }}</pre>
+  
+  
+  <button @pointerdown="numero = key+1" class="font-mono">label : {{ label }}</button>
+
+  
+  <p v-show="numero === key+1" class="font-mono">texte : {{ texte }}</p>
 </section>
 
 </template>
