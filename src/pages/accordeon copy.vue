@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-const menuIsOpen = ref(false)
+const maVar = ref(0)
 </script>
 
 <template>
