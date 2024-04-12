@@ -42,9 +42,9 @@ onErrorCaptured((err, instance, info) => {
 <!-- nav#mainNav>ul>li*3>a[href="#"]{item $} -->
 <nav id="mainNav">
   <ul>
-    <li><a href="#">item 1</a></li>
-    <li><a href="#">item 2</a></li>
-    <li><a href="#">item 3</a></li>
+    <li v-show="menuIsOpen === 1"><a href="#">item 1</a></li>
+    <li v-show="menuIsOpen === 1"><a href="#">item 2</a></li>
+    <li v-show="menuIsOpen === 1"><a href="#">item 3</a></li>
   </ul>
 </nav>
 
